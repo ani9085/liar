@@ -74,6 +74,7 @@ test/                  node --test
 
 - 화면 디자인과 색·글씨 규칙: [`docs/design/`](docs/design/README.md)
 - 안드로이드 네이티브 앱 계획(자동 문자·카톡·전화 경고 포함): [`docs/android-plan.md`](docs/android-plan.md)
+- 안드로이드 앱 코드와 빌드 방법: [`android/`](android/README.md)
 
 ## MVP의 한계와 다음 단계
 

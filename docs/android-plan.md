@@ -3,6 +3,9 @@
 웹앱(PWA)과 같은 판별 기능에 **자동 보호**(문자·카톡 알림, 모르는 전화 경고)를 더한 안드로이드 앱.
 화면은 [`docs/design`](design/README.md)의 디자인을 따른다.
 
+> 구현됨: [`android/`](../android/README.md). 설정 저장은 DataStore 대신 SharedPreferences를 썼다
+> (알림·전화 확인 서비스가 기다리지 않고 바로 읽어야 해서). 완료 기준 1·2는 확인했고, 3(실제 폰)은 남아 있다.
+
 ## 기술 선택
 
 - Kotlin + Jetpack Compose (Material 3, 단 색·글씨는 디자인 토큰으로 직접 지정)

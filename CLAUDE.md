@@ -8,12 +8,14 @@
 - 판별 규칙의 기준 구현: `public/js/rules.js` (서버·브라우저 공용). 안드로이드 Kotlin 판별 규칙도 이것과 같은 결과를 내야 함
 - AI 판별: OpenRouter, 키는 Vercel 환경변수 `OPENROUTER_API_KEY` (클라이언트·앱에 절대 넣지 않음)
 - 디자인: `docs/design/` (토큰은 README, 화면 원본은 `screens/*.dc.html`)
-- 안드로이드 앱: `android/` (아직 없음) — 계획은 `docs/android-plan.md`
+- 안드로이드 앱: `android/` (Kotlin + Compose) — 계획은 `docs/android-plan.md`, 빌드·구조는 `android/README.md`
+- 규칙을 고치면 `node android/tools/rules-fixtures.mjs`로 비교용 예문을 다시 만들고 `android/.../rules/Rules.kt`에도 옮긴다
 
 ## 명령
 
 - 웹 테스트: `npm test` (외부 패키지 없음, Node 22)
 - 웹 로컬 실행: `npm start` → http://localhost:3000
+- 안드로이드: `cd android && ./gradlew assembleDebug testDebugUnitTest`
 
 ## 원칙
 

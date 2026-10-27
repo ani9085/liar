@@ -1,0 +1,1621 @@
+[
+  {
+    "name": "사기: 자녀 사칭 + 상품권",
+    "text": "엄마 나 폰 액정이 깨져서 수리 맡겼어. 이 번호로 문자 줘. 문화상품권 좀 사서 번호 보내줄 수 있어?",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 65,
+      "level": "danger",
+      "signals": [
+        "family-impersonation",
+        "gift-card"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "자녀나 가족인 척 \"폰이 고장 났다\"며 다른 번호로 연락하는 수법과 비슷해요.",
+        "상품권을 사서 번호를 보내 달라는 요구는 대표적인 사기 수법이에요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "사기: 해외결제 문자",
+    "text": "[국제발신] 해외결제 승인 1,890,000원 본인이 아닐 경우 고객센터로 문의 바랍니다",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 70,
+      "level": "danger",
+      "signals": [
+        "payment-alert",
+        "not-me-call",
+        "foreign-number"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "\"해외 결제가 됐다\"며 놀라게 해서 전화를 걸게 하는 수법과 비슷해요.",
+        "\"본인이 아니면 연락하라\"는 문구로 전화를 유도해요.",
+        "해외에서 보낸 번호예요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "사기: 검찰 사칭",
+    "text": "서울중앙지검 수사관입니다. 고객님 명의 계좌가 범죄에 연루되어 안전계좌로 이체하셔야 합니다.",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 80,
+      "level": "danger",
+      "signals": [
+        "authority-impersonation",
+        "safe-account"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "검찰·금감원 같은 기관인 척하며 계좌나 범죄 이야기를 해요. 기관은 문자·전화로 돈을 요구하지 않아요.",
+        "\"안전계좌\"로 돈을 옮기라는 것은 100% 사기예요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "사기: 택배 스미싱",
+    "text": "[CJ대한통운] 주소지 미확인으로 반송 예정입니다. 주소 확인 http://bit.ly/3abcd",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [
+      "http://bit.ly/3abcd"
+    ],
+    "scam": {
+      "score": 55,
+      "level": "danger",
+      "signals": [
+        "delivery-lure",
+        "link",
+        "short-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "진짜 주소를 숨기는 \"단축 주소\"가 쓰였어요.",
+        "택배 주소 확인을 핑계로 링크를 누르게 하는 문자와 비슷해요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [
+        "http://bit.ly/3abcd"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "사기: 부고 스미싱",
+    "text": "모바일 부고장 안내드립니다. han.gl/xYz12",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [
+      "han.gl/xYz12"
+    ],
+    "scam": {
+      "score": 55,
+      "level": "danger",
+      "signals": [
+        "event-lure",
+        "link",
+        "short-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "진짜 주소를 숨기는 \"단축 주소\"가 쓰였어요.",
+        "부고·청첩장을 핑계로 링크를 누르게 하는 문자일 수 있어요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [
+        "han.gl/xYz12"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "사기: 대출 + 앱 설치",
+    "text": "정부지원 저금리 대출 승인되었습니다. 아래 앱 설치 후 신청하세요.",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 60,
+      "level": "danger",
+      "signals": [
+        "app-install",
+        "loan"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "앱 설치나 원격 조종을 요구해요. 휴대폰 정보를 빼가려는 수법일 수 있어요.",
+        "저금리 대출을 권하는 문자는 사기인 경우가 많아요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "사기: 신분증 요구",
+    "text": "아빠 나 휴대폰 고장나서 그런데 신분증 사진 찍어서 보내줘",
+    "mode": "scam",
+    "expected": {
+      "scam": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 70,
+      "level": "danger",
+      "signals": [
+        "family-impersonation",
+        "id-card-request"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "자녀나 가족인 척 \"폰이 고장 났다\"며 다른 번호로 연락하는 수법과 비슷해요.",
+        "신분증이나 주민번호를 보내 달라고 해요. 절대 보내면 안 돼요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "허위정보: 기적의 치료법",
+    "text": "[긴급속보] 언론에서 절대 보도하지 않는 충격적인 진실! 양파를 매일 먹으면 암이 완치된다고 합니다. 지인들에게 꼭 퍼뜨려 주세요!!!",
+    "mode": "scam",
+    "expected": {
+      "misinfo": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 100,
+      "level": "danger",
+      "signals": [
+        "share-pressure",
+        "hidden-truth",
+        "sensational",
+        "miracle-cure",
+        "exclamations"
+      ]
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "danger",
+      "headline": "사실이 아닐 가능성이 높아요!",
+      "reasons": [
+        "\"널리 퍼뜨려 달라\"고 재촉하는 글은 가짜 정보인 경우가 많아요.",
+        "\"언론이 숨기는 진실\" 같은 표현은 근거 없는 글에서 자주 쓰여요.",
+        "\"먹기만 하면 병이 낫는다\"는 식의 건강 정보는 대부분 사실이 아니에요.",
+        "자극적인 표현으로 놀라게 하고 있어요."
+      ],
+      "advice": "다른 분께 보내지 마세요. 사실이 아닌 글을 보내면 받는 분이 피해를 볼 수 있어요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "허위정보: 숨겨진 건강정보",
+    "text": "의사들이 절대 말하지 않는 비밀. 이 차를 마시면 일주일 만에 당뇨가 낫는다고 하네요. 단톡방에 공유 부탁드려요",
+    "mode": "scam",
+    "expected": {
+      "misinfo": "danger"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 90,
+      "level": "danger",
+      "signals": [
+        "share-pressure",
+        "hidden-truth",
+        "miracle-cure"
+      ]
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "danger",
+      "headline": "사실이 아닐 가능성이 높아요!",
+      "reasons": [
+        "\"널리 퍼뜨려 달라\"고 재촉하는 글은 가짜 정보인 경우가 많아요.",
+        "\"언론이 숨기는 진실\" 같은 표현은 근거 없는 글에서 자주 쓰여요.",
+        "\"먹기만 하면 병이 낫는다\"는 식의 건강 정보는 대부분 사실이 아니에요."
+      ],
+      "advice": "다른 분께 보내지 마세요. 사실이 아닌 글을 보내면 받는 분이 피해를 볼 수 있어요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "안전: 가족 모임",
+    "text": "오늘 저녁 7시에 가족 모임 있어요. 늦지 마세요~",
+    "mode": "scam",
+    "expected": {
+      "scam": "safe",
+      "misinfo": "safe"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "안전: 자녀 안부",
+    "text": "엄마 오늘 날씨 추우니까 따뜻하게 입고 나가세요",
+    "mode": "scam",
+    "expected": {
+      "scam": "safe",
+      "misinfo": "safe"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "안전: 병원 예약",
+    "text": "병원 예약이 내일 오전 10시로 확정되었습니다.",
+    "mode": "scam",
+    "expected": {
+      "scam": "safe",
+      "misinfo": "safe"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "안전: 택배 도착",
+    "text": "택배가 도착했습니다. 문 앞에 두었습니다.",
+    "mode": "scam",
+    "expected": {
+      "scam": "safe",
+      "misinfo": "safe"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "안전: 금액 표기",
+    "text": "이번 달 관리비는 125,000원입니다.",
+    "mode": "scam",
+    "expected": {
+      "scam": "safe",
+      "misinfo": "safe"
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 한글이 붙은 주소",
+    "text": "여기 naver.com에서 확인하세요.",
+    "mode": "scam",
+    "links": [
+      "naver.com"
+    ],
+    "scam": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [
+        "naver.com"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 숫자 주소 뒤 쉼표",
+    "text": "http://1.2.3.4/a, 그리고",
+    "mode": "scam",
+    "links": [
+      "http://1.2.3.4/a"
+    ],
+    "scam": {
+      "score": 45,
+      "level": "caution",
+      "signals": [
+        "link",
+        "ip-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "정상 업체라면 쓰지 않는 숫자로 된 주소예요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [
+        "http://1.2.3.4/a"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 한글 바로 뒤 주소",
+    "text": "주소naver.com 확인",
+    "mode": "scam",
+    "links": [
+      "naver.com"
+    ],
+    "scam": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [
+        "naver.com"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 대문자 주소",
+    "text": "WWW.EXAMPLE.XYZ/path 접속하세요",
+    "mode": "scam",
+    "links": [
+      "WWW.EXAMPLE.XYZ/path"
+    ],
+    "scam": {
+      "score": 40,
+      "level": "caution",
+      "signals": [
+        "link",
+        "risky-domain"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "사기에 자주 쓰이는 낯선 주소예요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [
+        "WWW.EXAMPLE.XYZ/path"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 숫자 주소와 포트",
+    "text": "http://192.168.0.1:8080/login 로그인",
+    "mode": "scam",
+    "links": [
+      "http://192.168.0.1:8080/login"
+    ],
+    "scam": {
+      "score": 45,
+      "level": "caution",
+      "signals": [
+        "link",
+        "ip-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "정상 업체라면 쓰지 않는 숫자로 된 주소예요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [
+        "http://192.168.0.1:8080/login"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 괄호와 마침표",
+    "text": "여기를 보세요 (bit.ly/abc). 그리고 naver.com.",
+    "mode": "scam",
+    "links": [
+      "bit.ly/abc",
+      "naver.com"
+    ],
+    "scam": {
+      "score": 40,
+      "level": "caution",
+      "signals": [
+        "link",
+        "short-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "진짜 주소를 숨기는 \"단축 주소\"가 쓰였어요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [
+        "bit.ly/abc",
+        "naver.com"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 한글 경로",
+    "text": "https://site.kr/경로/안내 를 누르세요",
+    "mode": "scam",
+    "links": [
+      "https://site.kr/경로/안내"
+    ],
+    "scam": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [
+        "https://site.kr/경로/안내"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "링크: 같은 주소 두 번",
+    "text": "han.gl/a 그리고 han.gl/a",
+    "mode": "scam",
+    "links": [
+      "han.gl/a"
+    ],
+    "scam": {
+      "score": 40,
+      "level": "caution",
+      "signals": [
+        "link",
+        "short-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "진짜 주소를 숨기는 \"단축 주소\"가 쓰였어요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [
+        "han.gl/a"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "공백: 줄바꿈 없는 공백",
+    "text": "지금 안전 계좌로 옮기세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 40,
+      "level": "caution",
+      "signals": [
+        "safe-account"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "\"안전계좌\"로 돈을 옮기라는 것은 100% 사기예요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "공백: 전각 공백",
+    "text": "국가　안전　계좌 안내",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 40,
+      "level": "caution",
+      "signals": [
+        "safe-account"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "\"안전계좌\"로 돈을 옮기라는 것은 100% 사기예요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "줄바꿈: s 플래그 규칙",
+    "text": "엄마\n나 폰\n고장났어",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 35,
+      "level": "caution",
+      "signals": [
+        "family-impersonation"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "자녀나 가족인 척 \"폰이 고장 났다\"며 다른 번호로 연락하는 수법과 비슷해요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "줄바꿈: 일반 규칙",
+    "text": "[속보]\n충격적인 진실",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 45,
+      "level": "caution",
+      "signals": [
+        "hidden-truth",
+        "sensational"
+      ]
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "caution",
+      "headline": "확인되지 않은 내용일 수 있어요",
+      "reasons": [
+        "\"언론이 숨기는 진실\" 같은 표현은 근거 없는 글에서 자주 쓰여요.",
+        "자극적인 표현으로 놀라게 하고 있어요."
+      ],
+      "advice": "보내기 전에 뉴스나 공식 기관에서 같은 내용이 나오는지 확인해 보세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "해외 번호: +1",
+    "text": "+1 202-555-0100 으로 연락 주세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "foreign-number"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "해외에서 보낸 번호예요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "해외 번호: +82 제외",
+    "text": "+82 10-1234-5678 로 연락 주세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "해외 번호: 001",
+    "text": "001-1-202-555-0100 전화",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "foreign-number"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "해외에서 보낸 번호예요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "해외 번호: 국제전화",
+    "text": "국제전화가 왔어요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "foreign-number"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "해외에서 보낸 번호예요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "본인 아님 문의",
+    "text": "본인 아니시면 연락 주세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 25,
+      "level": "caution",
+      "signals": [
+        "not-me-call"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "\"본인이 아니면 연락하라\"는 문구로 전화를 유도해요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "원격 앱",
+    "text": "TeamViewer 설치해 주세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 35,
+      "level": "caution",
+      "signals": [
+        "app-install"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "앱 설치나 원격 조종을 요구해요. 휴대폰 정보를 빼가려는 수법일 수 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "apk 파일",
+    "text": "파일 abc.APK 받으세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 35,
+      "level": "caution",
+      "signals": [
+        "app-install"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "앱 설치나 원격 조종을 요구해요. 휴대폰 정보를 빼가려는 수법일 수 있어요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "apk 뒤 밑줄",
+    "text": "abc.apk_file 이름",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "인증번호 요구",
+    "text": "OTP 번호 알려주세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 25,
+      "level": "caution",
+      "signals": [
+        "secret-info-request"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "비밀번호·인증번호 같은 중요한 정보를 요구해요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "전각 느낌표",
+    "text": "이것 좀 보세요！！！",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 10,
+      "level": "safe",
+      "signals": [
+        "exclamations"
+      ]
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [
+        "느낌표를 많이 써서 감정을 자극하고 있어요."
+      ],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "압박 + 단축 주소",
+    "text": "오늘 중 납부 안 하면 압류됩니다 http://bit.ly/x",
+    "mode": "scam",
+    "links": [
+      "http://bit.ly/x"
+    ],
+    "scam": {
+      "score": 50,
+      "level": "danger",
+      "signals": [
+        "pressure",
+        "link",
+        "short-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "진짜 주소를 숨기는 \"단축 주소\"가 쓰였어요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요.",
+        "겁을 주거나 서두르게 만드는 표현이 있어요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [
+        "http://bit.ly/x"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "숫자 + 기간",
+    "text": "9일 만에 완치되는 비법",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 30,
+      "level": "caution",
+      "signals": [
+        "miracle-cure"
+      ]
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "caution",
+      "headline": "확인되지 않은 내용일 수 있어요",
+      "reasons": [
+        "\"먹기만 하면 병이 낫는다\"는 식의 건강 정보는 대부분 사실이 아니에요."
+      ],
+      "advice": "보내기 전에 뉴스나 공식 기관에서 같은 내용이 나오는지 확인해 보세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "분해된 한글(NFD)",
+    "text": "안전계좌로 이체하세요",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 40,
+      "level": "caution",
+      "signals": [
+        "safe-account"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "\"안전계좌\"로 돈을 옮기라는 것은 100% 사기예요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "빈 글",
+    "text": "",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "safe",
+      "headline": "특별히 위험한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 돈이나 개인정보를 달라고 하면 바로 의심하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "투자 리딩방",
+    "text": "리딩방 무료 입장, 수익 보장 급등주 추천",
+    "mode": "scam",
+    "links": [],
+    "scam": {
+      "score": 25,
+      "level": "caution",
+      "signals": [
+        "investment"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "caution",
+      "headline": "조심하세요. 의심스러운 부분이 있어요",
+      "reasons": [
+        "수익을 보장한다는 투자 권유는 사기일 가능성이 높아요."
+      ],
+      "advice": "보낸 사람에게 원래 알던 번호로 직접 전화해서 확인하세요. 링크는 누르지 마세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "카드 번호 요구",
+    "text": "카드번호와 CVC를 입력해 주세요 https://pay-check.top/a",
+    "mode": "scam",
+    "links": [
+      "https://pay-check.top/a"
+    ],
+    "scam": {
+      "score": 65,
+      "level": "danger",
+      "signals": [
+        "secret-info-request",
+        "link",
+        "risky-domain"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "비밀번호·인증번호 같은 중요한 정보를 요구해요.",
+        "사기에 자주 쓰이는 낯선 주소예요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [
+        "https://pay-check.top/a"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "보내기 전: 택배 스미싱",
+    "text": "[CJ대한통운] 주소지 미확인으로 반송 예정입니다. 주소 확인 http://bit.ly/3abcd",
+    "mode": "share",
+    "links": [
+      "http://bit.ly/3abcd"
+    ],
+    "scam": {
+      "score": 55,
+      "level": "danger",
+      "signals": [
+        "delivery-lure",
+        "link",
+        "short-link"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "진짜 주소를 숨기는 \"단축 주소\"가 쓰였어요.",
+        "택배 주소 확인을 핑계로 링크를 누르게 하는 문자와 비슷해요.",
+        "누르라고 하는 인터넷 주소(링크)가 들어 있어요."
+      ],
+      "advice": "다른 분께 보내지 마세요. 링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [
+        "http://bit.ly/3abcd"
+      ],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "보내기 전: 기적의 치료법",
+    "text": "양파를 매일 먹으면 암이 완치된대요. 지인들에게 꼭 알려주세요!",
+    "mode": "share",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 60,
+      "level": "danger",
+      "signals": [
+        "share-pressure",
+        "miracle-cure"
+      ]
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "danger",
+      "headline": "사실이 아닐 가능성이 높아요!",
+      "reasons": [
+        "\"널리 퍼뜨려 달라\"고 재촉하는 글은 가짜 정보인 경우가 많아요.",
+        "\"먹기만 하면 병이 낫는다\"는 식의 건강 정보는 대부분 사실이 아니에요."
+      ],
+      "advice": "다른 분께 보내지 마세요. 사실이 아닌 글을 보내면 받는 분이 피해를 볼 수 있어요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "보내기 전: 안전",
+    "text": "오늘 저녁 7시에 가족 모임 있어요. 늦지 마세요~",
+    "mode": "share",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "safe",
+      "headline": "특별히 이상한 점은 못 찾았어요",
+      "reasons": [],
+      "advice": "그래도 보내기 전에 누가 쓴 글인지 한 번 더 확인해 주세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "보내기 전: 출처 불명",
+    "text": "아는 사람이 그러는데 내일부터 버스 요금이 오른다고 하네요",
+    "mode": "share",
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 15,
+      "level": "safe",
+      "signals": [
+        "vague-source"
+      ]
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "safe",
+      "headline": "특별히 이상한 점은 못 찾았어요",
+      "reasons": [
+        "누가 말했는지 출처가 분명하지 않아요."
+      ],
+      "advice": "그래도 보내기 전에 누가 쓴 글인지 한 번 더 확인해 주세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": false
+    }
+  },
+  {
+    "name": "AI가 더 위험하다고 본 경우",
+    "text": "엄마 나 새 번호야. 저장해줘",
+    "mode": "scam",
+    "ai": {
+      "scam_level": "danger",
+      "misinfo_level": "not_applicable",
+      "headline": "자녀를 사칭한 사기예요",
+      "reasons": [
+        "새 번호로 돈을 요구해요."
+      ],
+      "advice": "아드님께 원래 번호로 전화해 보세요.",
+      "fact_check": ""
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "자녀를 사칭한 사기예요",
+      "reasons": [
+        "새 번호로 돈을 요구해요."
+      ],
+      "advice": "아드님께 원래 번호로 전화해 보세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": true
+    }
+  },
+  {
+    "name": "AI가 안전하다고 해도 규칙이 위험을 찾은 경우",
+    "text": "서울중앙지검 수사관입니다. 고객님 명의 계좌가 범죄에 연루되어 안전계좌로 이체하셔야 합니다.",
+    "mode": "scam",
+    "ai": {
+      "scam_level": "safe",
+      "misinfo_level": "not_applicable",
+      "headline": "안전해 보여요",
+      "reasons": [],
+      "advice": "괜찮아요.",
+      "fact_check": ""
+    },
+    "links": [],
+    "scam": {
+      "score": 80,
+      "level": "danger",
+      "signals": [
+        "authority-impersonation",
+        "safe-account"
+      ]
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "scam",
+      "level": "danger",
+      "headline": "사기일 가능성이 높아요!",
+      "reasons": [
+        "검찰·금감원 같은 기관인 척하며 계좌나 범죄 이야기를 해요. 기관은 문자·전화로 돈을 요구하지 않아요.",
+        "\"안전계좌\"로 돈을 옮기라는 것은 100% 사기예요."
+      ],
+      "advice": "링크를 누르지 마세요. 전화하지 마세요. 돈이나 개인정보를 절대 보내지 마세요. 이미 보냈다면 바로 112에 전화하세요.",
+      "factCheck": "",
+      "links": [],
+      "usedAI": true
+    }
+  },
+  {
+    "name": "AI 허위정보 판정과 사실 확인",
+    "text": "이 차를 마시면 혈압이 바로 내려간대요",
+    "mode": "share",
+    "ai": {
+      "scam_level": "safe",
+      "misinfo_level": "danger",
+      "headline": "사실이 아닌 건강 정보예요",
+      "reasons": [
+        "차 한 잔으로 혈압이 바로 내려간다는 근거는 없어요.",
+        " "
+      ],
+      "advice": "보내지 마시고 의사와 상의하세요.",
+      "fact_check": "혈압약을 대신할 수 있는 차는 확인되지 않았어요."
+    },
+    "links": [],
+    "scam": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "misinfo": {
+      "score": 0,
+      "level": "safe",
+      "signals": []
+    },
+    "verdict": {
+      "category": "misinfo",
+      "level": "danger",
+      "headline": "사실이 아닌 건강 정보예요",
+      "reasons": [
+        "차 한 잔으로 혈압이 바로 내려간다는 근거는 없어요."
+      ],
+      "advice": "보내지 마시고 의사와 상의하세요.",
+      "factCheck": "혈압약을 대신할 수 있는 차는 확인되지 않았어요.",
+      "links": [],
+      "usedAI": true
+    }
+  }
+]
