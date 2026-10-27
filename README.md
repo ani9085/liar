@@ -70,6 +70,11 @@ vercel.json            Vercel 설정
 test/                  node --test
 ```
 
+## 디자인과 안드로이드 앱
+
+- 화면 디자인과 색·글씨 규칙: [`docs/design/`](docs/design/README.md)
+- 안드로이드 네이티브 앱 계획(자동 문자·카톡·전화 경고 포함): [`docs/android-plan.md`](docs/android-plan.md)
+
 ## MVP의 한계와 다음 단계
 
 웹앱은 전화·문자·카톡을 **자동으로 가로챌 수 없습니다.** 지금은 어르신이 글을 공유하거나 붙여넣어야 판별합니다. "사전 차단"까지 하려면 네이티브 앱이 필요합니다.
