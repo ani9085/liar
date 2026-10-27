@@ -1,0 +1,32 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-27T11:30:00Z" },
+  "title": "진실판별기 앱 디자인",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 412, "h": 915, "title": "홈" },
+    "Input.dc.html": { "x": 492, "y": 0, "w": 412, "h": 915, "title": "글 붙여넣기" },
+    "ResultScam.dc.html": { "x": 984, "y": 0, "w": 412, "h": 1140, "title": "결과 · 사기 위험" },
+    "ResultShare.dc.html": { "x": 1476, "y": 0, "w": 412, "h": 1140, "title": "결과 · 보내기 전 주의" },
+    "ResultSafe.dc.html": { "x": 1968, "y": 0, "w": 412, "h": 1140, "title": "결과 · 안전" },
+    "AlertSms.dc.html": { "x": 0, "y": 1560, "w": 412, "h": 915, "title": "문자 자동 경고" },
+    "CallWarning.dc.html": { "x": 492, "y": 1560, "w": 412, "h": 915, "title": "사기 의심 전화 경고" },
+    "Settings.dc.html": { "x": 984, "y": 1560, "w": 412, "h": 1140, "title": "자동 보호 설정" }
+  },
+  "order": [
+    "Main.dc.html",
+    "Input.dc.html",
+    "ResultScam.dc.html",
+    "ResultShare.dc.html",
+    "ResultSafe.dc.html",
+    "AlertSms.dc.html",
+    "CallWarning.dc.html",
+    "Settings.dc.html"
+  ],
+  "notes": {
+    "row1": { "x": 0, "y": -300, "text": "직접 확인하기", "kind": "title1", "maxW": 2380 },
+    "row2": { "x": 0, "y": 1260, "text": "안드로이드 앱: 자동 보호", "kind": "title1", "maxW": 1396 }
+  },
+  "designSystems": []
+}

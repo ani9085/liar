@@ -1,0 +1,14 @@
+{
+  "name": "jinsil-panbyeolgi",
+  "version": "0.1.0",
+  "description": "진실판별기 - 부모님을 위한 사기 문자·가짜 정보 판별 앱",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Jinsil" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorAccent">@color/primary</item>
+    </style>
+
+    <!-- 문자 자동 경고 (docs/design/screens/AlertSms.dc.html) -->
+    <style name="Theme.Jinsil.Alert" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/alert_background</item>
+    </style>
+
+    <!-- 모르는 전화 경고 (docs/design/screens/CallWarning.dc.html) -->
+    <style name="Theme.Jinsil.Call" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/call_background</item>
+    </style>
+</resources>

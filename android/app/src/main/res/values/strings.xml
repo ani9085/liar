@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">진실판별기</string>
+    <string name="listener_label">진실판별기 문자·카톡 자동 확인</string>
+</resources>
