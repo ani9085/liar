@@ -90,7 +90,7 @@ function render(verdict) {
   $('result-calls').hidden = !(verdict.category === 'scam' && verdict.level === 'danger');
 
   $('result-note').textContent = verdict.offline
-    ? '인터넷 연결이 없어 기본 검사만 했어요. 판단이 틀릴 수 있으니 돈과 관련된 일은 꼭 가족과 상의하세요.'
+    ? '서버에 연결하지 못해 휴대폰 안에서 기본 검사만 했어요. 판단이 틀릴 수 있으니 돈과 관련된 일은 꼭 가족과 상의하세요.'
     : verdict.usedAI
       ? 'AI의 판단은 틀릴 수 있어요. 돈과 관련된 일은 꼭 가족과 상의하세요.'
       : '기본 검사 결과예요. 판단이 틀릴 수 있으니 돈과 관련된 일은 꼭 가족과 상의하세요.';

@@ -1,12 +1,13 @@
+// 로컬 개발용 서버. 배포는 Vercel이 public/ 과 api/ 를 직접 서비스한다.
 import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { analyzeText, buildVerdict } from './public/js/rules.js';
+import { handleAnalyze } from './src/analyze.js';
+import { createAiAnalyzerFromEnv, DEFAULT_MODEL } from './src/ai.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(here, 'public');
-const MAX_TEXT = 5000;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -56,15 +57,14 @@ export function createServer({ aiAnalyze = null } = {}) {
   return http.createServer(async (req, res) => {
     try {
       if (req.method === 'POST' && req.url === '/api/analyze') {
-        const { text, mode } = JSON.parse(await readBody(req));
-        if (typeof text !== 'string' || !text.trim()) {
-          return sendJson(res, 400, { error: '확인할 내용을 입력해 주세요.' });
+        let body = null;
+        try {
+          body = JSON.parse(await readBody(req));
+        } catch (error) {
+          if (error.status === 413) return sendJson(res, 413, { error: '글이 너무 길어요.' });
         }
-        const input = text.slice(0, MAX_TEXT);
-        const safeMode = mode === 'share' ? 'share' : 'scam';
-        const rules = analyzeText(input);
-        const ai = aiAnalyze ? await aiAnalyze(input, safeMode) : null;
-        return sendJson(res, 200, buildVerdict(safeMode, rules, ai));
+        const { status, json } = await handleAnalyze(body, { aiAnalyze, ip: req.socket.remoteAddress });
+        return sendJson(res, status, json);
       }
       if (req.method === 'GET' && req.url === '/api/health') {
         return sendJson(res, 200, { ok: true, ai: Boolean(aiAnalyze) });
@@ -74,8 +74,6 @@ export function createServer({ aiAnalyze = null } = {}) {
       }
       res.writeHead(405).end();
     } catch (error) {
-      if (error instanceof SyntaxError) return sendJson(res, 400, { error: '잘못된 요청이에요.' });
-      if (error.status === 413) return sendJson(res, 413, { error: '글이 너무 길어요.' });
       console.error(error);
       sendJson(res, 500, { error: '잠시 후 다시 시도해 주세요.' });
     }
@@ -83,12 +81,14 @@ export function createServer({ aiAnalyze = null } = {}) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const hasKey = Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
-  const useAI = process.env.AI_DISABLED !== '1' && hasKey;
-  const aiAnalyze = useAI ? (await import('./src/ai.js')).createAiAnalyzer() : null;
+  const aiAnalyze = createAiAnalyzerFromEnv();
   const port = Number(process.env.PORT) || 3000;
   createServer({ aiAnalyze }).listen(port, () => {
     console.log(`진실판별기 실행 중: http://localhost:${port}`);
-    console.log(useAI ? 'AI 판별: 켜짐' : 'AI 판별: 꺼짐 (ANTHROPIC_API_KEY가 없어 규칙 판별만 사용)');
+    console.log(
+      aiAnalyze
+        ? `AI 판별: 켜짐 (${process.env.OPENROUTER_MODEL || DEFAULT_MODEL})`
+        : 'AI 판별: 꺼짐 (OPENROUTER_API_KEY가 없어 규칙 판별만 사용)',
+    );
   });
 }

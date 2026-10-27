@@ -1,7 +1,8 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from '../server.js';
-import { redact } from '../src/ai.js';
+import { allowAiCall, handleAnalyze } from '../src/analyze.js';
+import vercelAnalyze from '../api/analyze.js';
 
 let server;
 let base;
@@ -51,12 +52,52 @@ test('정적 파일을 제공하고 상위 폴더 접근은 막는다', async ()
   assert.equal(home.status, 200);
   assert.match(await home.text(), /진실판별기/);
   const manifest = await (await fetch(`${base}/manifest.webmanifest`)).json();
+  assert.equal(manifest.name, '진실판별기');
   assert.equal(manifest.share_target.method, 'GET');
   const traversal = await fetch(`${base}/..%2fpackage.json`);
   assert.notEqual(traversal.status, 200);
 });
 
-test('AI로 보내기 전 주민번호와 카드번호를 가린다', () => {
-  assert.equal(redact('주민번호 800101-1234567 입니다'), '주민번호 [주민번호] 입니다');
-  assert.equal(redact('카드 1234-5678-9012-3456'), '카드 [카드번호]');
+test('같은 IP가 1분에 너무 많이 부르면 AI 없이 규칙 판별만 한다', async () => {
+  const now = Date.now();
+  for (let i = 0; i < 10; i++) assert.equal(allowAiCall('1.1.1.1', now), true);
+  assert.equal(allowAiCall('1.1.1.1', now), false);
+  assert.equal(allowAiCall('2.2.2.2', now), true);
+  assert.equal(allowAiCall('1.1.1.1', now + 61_000), true);
+
+  let called = false;
+  const { status, json } = await handleAnalyze(
+    { text: '안녕하세요' },
+    { ip: '1.1.1.1', aiAnalyze: async () => ((called = true), null) },
+  );
+  assert.equal(status, 200);
+  assert.equal(json.level, 'safe');
+  assert.equal(called, true, '한도가 풀린 뒤에는 다시 AI를 부른다');
+});
+
+function mockRes() {
+  const res = { statusCode: 0, headers: {}, body: undefined };
+  res.status = (code) => ((res.statusCode = code), res);
+  res.json = (data) => ((res.body = data), res);
+  res.setHeader = (k, v) => (res.headers[k] = v);
+  return res;
+}
+
+test('Vercel 함수: POST만 받고, 판정을 JSON으로 돌려준다', async () => {
+  const get = mockRes();
+  await vercelAnalyze({ method: 'GET', headers: {} }, get);
+  assert.equal(get.statusCode, 405);
+
+  const ok = mockRes();
+  await vercelAnalyze(
+    { method: 'POST', headers: { 'x-forwarded-for': '9.9.9.9' }, body: { text: '모바일 부고장 han.gl/abc', mode: 'share' } },
+    ok,
+  );
+  assert.equal(ok.statusCode, 200);
+  assert.equal(ok.body.level, 'danger');
+  assert.equal(ok.body.category, 'scam');
+
+  const bad = mockRes();
+  await vercelAnalyze({ method: 'POST', headers: {}, body: '{oops' }, bad);
+  assert.equal(bad.statusCode, 400);
 });

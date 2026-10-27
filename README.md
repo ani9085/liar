@@ -1,5 +1,4 @@
-# liar
-부모님용 진실판별기
+# 진실판별기
 
 70대 부모님이 **사기 문자에 속지 않고**, **가짜 정보를 남에게 퍼뜨리지 않도록** 돕는 공공 웹앱(MVP)입니다.
 
@@ -15,53 +14,59 @@
 - **공유하기로 바로 확인**: 앱을 홈 화면에 설치하면 카톡·문자에서 글을 길게 눌러 `공유 → 진실판별기`로 보낼 수 있습니다 (Android Chrome, Web Share Target).
 - 🔊 **소리로 듣기**: 결과를 읽어줍니다.
 - 👨‍👩‍👧 **가족에게 물어보기**: 원문과 판별 결과를 자녀에게 바로 공유합니다.
-- 인터넷이 끊겨도 휴대폰 안에서 기본 검사가 됩니다.
+- 서버에 연결되지 않아도 휴대폰 안에서 기본 검사가 됩니다.
 
 ## 판별 방식
 
 1. **규칙 판별** (`public/js/rules.js`): 한국에서 흔한 수법을 정규식으로 찾아 점수를 매깁니다.
    - 사기: 자녀 사칭(폰 고장), 상품권 요구, 검찰·금감원 사칭, 안전계좌, 앱 설치·원격제어, 저금리 대출, 택배·부고·과태료 미끼, 해외결제 문자, 단축 주소·숫자 주소 링크 등
    - 허위정보: 공유 재촉, "언론이 숨기는 진실", 기적의 치료법, 출처 불명, 자극적 표현 등
-2. **AI 판별** (`src/ai.js`, 선택): `ANTHROPIC_API_KEY`가 있으면 Claude가 문맥을 보고 판단하고, 쉬운 말로 이유와 행동 요령을 씁니다.
-3. **합치기**: 어르신 보호가 목적이므로 규칙과 AI 중 **더 위험하다고 본 쪽**을 따릅니다. AI가 실패하거나 응답이 늦으면(30초) 규칙 결과만 보여줍니다.
+2. **AI 판별** (`src/ai.js`): `OPENROUTER_API_KEY`가 있으면 [OpenRouter](https://openrouter.ai)를 통해 LLM이 문맥을 보고 판단하고, 쉬운 말로 이유와 행동 요령을 씁니다.
+3. **합치기**: 어르신 보호가 목적이므로 규칙과 AI 중 **더 위험하다고 본 쪽**을 따릅니다. AI가 실패하거나 25초 안에 답하지 않으면 규칙 결과만 보여줍니다.
 
-AI로 보내기 전에 주민번호·카드번호는 `[주민번호]`, `[카드번호]`로 가립니다.
+API 키는 서버(Vercel 함수)에만 있고 브라우저로는 보내지 않습니다. AI로 보내기 전에 주민번호·카드번호는 `[주민번호]`, `[카드번호]`로 가립니다.
 
-## 실행
+## Vercel 배포
 
-Node.js 20 이상이 필요합니다.
+1. [vercel.com](https://vercel.com) → **Add New → Project** → 이 GitHub 저장소 선택
+   - Framework Preset: **Other** (빌드 명령 없음, 설정은 `vercel.json`에 있음)
+2. **Settings → Environment Variables**에 추가
+
+   | 이름 | 값 | 필수 |
+   |---|---|---|
+   | `OPENROUTER_API_KEY` | OpenRouter 키 (`sk-or-...`) | ✅ |
+   | `OPENROUTER_MODEL` | 모델 ID. 비우면 `anthropic/claude-opus-5.5` | |
+   | `AI_DISABLED` | `1`이면 AI를 끔 (비상용) | |
+
+3. 환경변수를 바꾼 뒤에는 **Redeploy** 해야 적용됩니다.
+4. 배포 주소 뒤에 `/api/health`를 열어 `"ai": true`인지 확인하세요.
+
+> **모델 ID 확인**: [openrouter.ai/models](https://openrouter.ai/models)에서 쓰려는 모델의 ID를 그대로 복사해 `OPENROUTER_MODEL`에 넣으세요. ID가 틀리면 AI 판별이 조용히 꺼지고 규칙 판별만 됩니다 (Vercel 로그에 `[ai] OpenRouter 오류`가 남습니다).
+
+> **비용 보호**: 누구나 쓰는 공공 앱이라 남용될 수 있습니다. OpenRouter 키 설정에서 **사용 한도(credit limit)를 꼭 걸어 두세요.** 앱은 같은 IP에서 1분에 10번이 넘으면 AI 없이 규칙 판별만 합니다.
+
+## 로컬 실행
+
+Node.js 22 이상이 필요합니다. 외부 패키지는 쓰지 않습니다.
 
 ```bash
-npm install
+cp .env.example .env      # OPENROUTER_API_KEY 입력 (없으면 규칙 판별만)
 npm start                 # http://localhost:3000
 npm test
 ```
 
-AI 판별을 켜려면:
-
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-npm start
-```
-
-| 환경변수 | 기본값 | 설명 |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | (없음) | 없으면 규칙 판별만 사용 |
-| `LIAR_AI_MODEL` | `claude-opus-5-5` | 비용을 줄이려면 `claude-haiku-5-5` 등으로 변경 |
-| `LIAR_AI_EFFORT` | `medium` | `low`로 낮추면 더 빠르고 저렴 |
-| `AI_DISABLED` | | `1`이면 키가 있어도 AI를 끔 |
-| `PORT` | `3000` | |
-
-휴대폰에 설치하고 공유하기로 받으려면 **HTTPS 주소**로 배포해야 합니다 (localhost 제외).
-
 ## 구조
 
 ```
-server.js              정적 파일 + POST /api/analyze
-src/ai.js              Claude 판별 (구조화된 JSON 응답)
+api/analyze.js         Vercel 함수: POST /api/analyze
+api/health.js          Vercel 함수: GET /api/health (AI 켜짐 여부 확인)
+src/analyze.js         요청 처리 + IP별 AI 호출 제한 (Vercel·로컬 공용)
+src/ai.js              OpenRouter 호출 (JSON 형식 응답)
 public/js/rules.js     규칙 판별 + 판정 합치기 (서버·브라우저 공용)
 public/app.js          화면 동작, 공유받기, 소리로 듣기
 public/sw.js           오프라인 동작용 서비스 워커
+server.js              로컬 개발용 서버
+vercel.json            Vercel 설정
 test/                  node --test
 ```
 

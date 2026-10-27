@@ -1,5 +1,5 @@
 // 앱 화면을 저장해 두어 인터넷이 끊겨도 기본 검사가 되게 한다.
-const CACHE = 'liar-v1';
+const CACHE = 'jinsil-v2';
 const SHELL = [
   '/',
   '/index.html',
