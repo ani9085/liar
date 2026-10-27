@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>진실판별기</title>
+  <meta name="description" content="의심되는 문자와 보내기 전 글을 확인해 드려요">
+  <meta name="theme-color" content="#1f4e8c">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main id="app">
+    <!-- 처음 화면 -->
+    <section id="screen-home" class="screen" aria-labelledby="home-title">
+      <header class="brand">
+        <h1 id="home-title">진실판별기</h1>
+        <p>의심되는 문자, 보내기 전 글을<br>확인해 드려요</p>
+      </header>
+
+      <p id="shared-notice" class="notice" hidden>공유받은 글이 있어요.<br><strong>무엇을 확인할까요?</strong></p>
+
+      <button class="big-choice scam" data-mode="scam" type="button">
+        <span class="choice-icon" aria-hidden="true">🛡️</span>
+        <span class="choice-text">
+          <strong>받은 문자·카톡 확인</strong>
+          <small>사기 문자인지 알려드려요</small>
+        </span>
+      </button>
+
+      <button class="big-choice share" data-mode="share" type="button">
+        <span class="choice-icon" aria-hidden="true">📤</span>
+        <span class="choice-text">
+          <strong>보내기 전에 확인</strong>
+          <small>사실인지 알려드려요</small>
+        </span>
+      </button>
+
+      <details class="tip">
+        <summary>카톡에서 바로 확인하는 방법</summary>
+        <ol>
+          <li>이 앱을 휴대폰에 설치하세요 (브라우저 메뉴 → <b>홈 화면에 추가</b>)</li>
+          <li>카톡이나 문자에서 글을 <b>길게 누르세요</b></li>
+          <li><b>공유</b>를 누르고 <b>진실판별기</b>를 고르세요</li>
+        </ol>
+      </details>
+
+      <nav class="emergency" aria-label="긴급 전화">
+        <a href="tel:112" class="call">📞 경찰 112</a>
+        <a href="tel:1332" class="call">📞 금감원 1332</a>
+      </nav>
+    </section>
+
+    <!-- 입력 화면 -->
+    <section id="screen-input" class="screen" hidden aria-labelledby="input-title">
+      <button class="back" type="button" data-go="home">← 처음으로</button>
+      <h2 id="input-title"></h2>
+      <p id="input-help" class="help"></p>
+      <label for="message" class="visually-hidden">확인할 글</label>
+      <textarea id="message" rows="7" maxlength="5000" placeholder="여기에 글을 붙여넣으세요"></textarea>
+      <button id="paste" class="secondary" type="button">📋 복사한 글 붙여넣기</button>
+      <button id="check" class="primary" type="button">확인하기</button>
+      <p id="input-error" class="error" role="alert" hidden></p>
+    </section>
+
+    <!-- 확인 중 -->
+    <section id="screen-loading" class="screen" hidden aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="loading-text">꼼꼼히 살펴보고 있어요…<br><small>잠시만 기다려 주세요</small></p>
+    </section>
+
+    <!-- 결과 화면 -->
+    <section id="screen-result" class="screen" hidden aria-live="polite">
+      <article id="result-card" class="result">
+        <p class="result-badge"><span id="result-icon" aria-hidden="true"></span> <span id="result-label"></span></p>
+        <h2 id="result-headline"></h2>
+      </article>
+
+      <div class="block advice">
+        <h3>이렇게 하세요</h3>
+        <p id="result-advice"></p>
+      </div>
+
+      <div id="result-calls" class="emergency" hidden>
+        <a href="tel:112" class="call">📞 경찰 112</a>
+        <a href="tel:1332" class="call">📞 금감원 1332</a>
+      </div>
+
+      <div class="block" id="reasons-block">
+        <h3>이렇게 판단했어요</h3>
+        <ul id="result-reasons"></ul>
+      </div>
+
+      <div class="block" id="factcheck-block" hidden>
+        <h3>실제로는요</h3>
+        <p id="result-factcheck"></p>
+      </div>
+
+      <button id="speak" class="secondary" type="button">🔊 소리로 듣기</button>
+      <button id="ask-family" class="secondary" type="button">👨‍👩‍👧 가족에게 물어보기</button>
+      <button class="primary" type="button" data-go="home">처음으로</button>
+
+      <p id="result-note" class="note"></p>
+    </section>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
