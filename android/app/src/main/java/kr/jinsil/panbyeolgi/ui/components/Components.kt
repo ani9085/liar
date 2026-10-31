@@ -154,9 +154,10 @@ fun EmergencyCallButtons(modifier: Modifier = Modifier) {
             color = Palette.Danger,
             modifier = Modifier.weight(1f),
             minHeight = 76.dp,
-            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 10.dp),
+            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 10.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
         ) {
-            ButtonLabel("경찰 112", LineIcons.Phone, 28.dp, Palette.Surface, Type.CallButton)
+            ButtonLabel("경찰 112", LineIcons.Phone, 24.dp, Palette.Surface, Type.CallButton)
         }
         Tappable(
             onClick = { Actions.dial(context, "1332") },
@@ -165,9 +166,10 @@ fun EmergencyCallButtons(modifier: Modifier = Modifier) {
             modifier = Modifier.weight(1f),
             border = BorderStroke(2.dp, Palette.Danger),
             minHeight = 76.dp,
-            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 10.dp),
+            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 10.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
         ) {
-            ButtonLabel("금감원 1332", LineIcons.Phone, 28.dp, Palette.Danger, Type.CallButton)
+            ButtonLabel("금감원 1332", LineIcons.Phone, 24.dp, Palette.Danger, Type.CallButton)
         }
     }
 }

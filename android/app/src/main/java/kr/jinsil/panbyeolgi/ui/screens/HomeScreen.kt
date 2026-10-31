@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kr.jinsil.panbyeolgi.rules.Mode
 import kr.jinsil.panbyeolgi.ui.components.EmergencyCallButtons
 import kr.jinsil.panbyeolgi.ui.components.Heading
@@ -78,7 +79,7 @@ fun HomeScreen(
         Heading("무엇을 확인할까요?", Type.Question, Modifier.padding(top = 8.dp), Palette.Ink)
 
         ChoiceCard(
-            title = "받은 문자·카톡\n확인하기",
+            title = "받은 문자·카톡 확인",
             subtitle = "사기 문자인지 알려드려요",
             icon = LineIcons.MessageAlert,
             iconColor = Palette.Danger,
@@ -86,7 +87,7 @@ fun HomeScreen(
             onClick = { onChoose(Mode.SCAM) },
         )
         ChoiceCard(
-            title = "보내기 전에\n확인하기",
+            title = "보내기 전에 확인",
             subtitle = "사실인지 알려드려요",
             icon = LineIcons.Send,
             iconColor = Palette.Primary,
@@ -129,7 +130,7 @@ private fun ProtectionStatus(on: Boolean, onSettings: () -> Unit) {
     ) {
         Box(Modifier.size(14.dp).clip(CircleShape).background(dot))
         Text(
-            if (on) "자동 보호 켜짐 · 문자가 오면 바로 확인해요" else "자동 보호 꺼짐 · 눌러서 켜 주세요",
+            if (on) "자동 보호 켜짐 · 문자를 바로 확인해요" else "자동 보호 꺼짐 · 눌러서 켜 주세요",
             style = Type.BodyStrong,
             color = ink,
             modifier = Modifier.weight(1f),
@@ -153,20 +154,20 @@ private fun ChoiceCard(
         color = Palette.Surface,
         modifier = Modifier.fillMaxWidth().shadow(8.dp, shape, ambientColor = Palette.Ink.copy(alpha = 0.06f), spotColor = Palette.Ink.copy(alpha = 0.06f)),
         border = BorderStroke(2.dp, Palette.Border),
-        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 24.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(horizontal = 18.dp, vertical = 20.dp),
+        horizontalArrangement = Arrangement.spacedBy(14.dp),
         role = Role.Button,
     ) {
         Box(
-            Modifier.size(68.dp).clip(RoundedCornerShape(20.dp)).background(iconBackground),
+            Modifier.size(60.dp).clip(RoundedCornerShape(18.dp)).background(iconBackground),
             contentAlignment = Alignment.Center,
         ) {
-            Icon(icon, contentDescription = null, tint = iconColor, modifier = Modifier.size(38.dp))
+            Icon(icon, contentDescription = null, tint = iconColor, modifier = Modifier.size(34.dp))
         }
-        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(title, style = Type.CardTitle, color = Palette.Ink)
-            Text(subtitle, style = Type.Body, color = Palette.InkMuted)
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(title, style = Type.CardTitle.copy(fontSize = 25.sp, lineHeight = 32.sp), color = Palette.Ink)
+            Text(subtitle, style = Type.Body.copy(fontSize = 20.sp, lineHeight = 28.sp), color = Palette.InkMuted)
         }
-        Icon(LineIcons.ChevronRight, contentDescription = null, tint = Palette.Chevron, modifier = Modifier.size(28.dp))
+        Icon(LineIcons.ChevronRight, contentDescription = null, tint = Palette.Chevron, modifier = Modifier.size(26.dp))
     }
 }

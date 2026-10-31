@@ -5,6 +5,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -70,7 +71,7 @@ object Type {
     val PrimaryButton = style(28f, FontWeight.Black, 1.3f)
     val PrimaryButtonSmall = style(26f, FontWeight.Black, 1.3f)
     val Action = style(24f, FontWeight.Black, 1.35f)
-    val CallButton = style(24f, FontWeight.Black, 1.3f)
+    val CallButton = style(22f, FontWeight.Black, 1.3f)
     val SettingTitle = style(24f, FontWeight.Black, 1.35f)
     val SecondaryButton = style(23f, FontWeight.Bold, 1.35f)
     val BodyLarge = style(23f, FontWeight.Normal, 1.55f)
@@ -85,10 +86,19 @@ object Type {
     val Note = style(18f, FontWeight.Normal, 1.5f)
 }
 
-/** 설정의 글씨 크기: 크게 1.0 / 아주 크게 1.2 (휴대폰 글씨 크기 설정 위에 곱한다). */
+/** 디자인 기준 화면 폭 (docs/design: 412 × 915 dp) */
+private const val DESIGN_WIDTH_DP = 412f
+
+/**
+ * 설정의 글씨 크기: 크게 1.0 / 아주 크게 1.2 (휴대폰 글씨 크기 설정 위에 곱한다).
+ * 화면이 디자인 기준(412dp)보다 좁으면 화면 전체를 그 비율로 줄여서 디자인과 같은 배치로 보이게 한다.
+ */
 @Composable
 fun JinsilTheme(textScale: Float = 1f, content: @Composable () -> Unit) {
-    val density = LocalDensity.current
+    val base = LocalDensity.current
+    val widthDp = LocalConfiguration.current.screenWidthDp
+    val fit = if (widthDp > 0) (widthDp / DESIGN_WIDTH_DP).coerceIn(0.8f, 1f) else 1f
+    val density = Density(base.density * fit, base.fontScale)
     MaterialTheme(
         colorScheme = lightColorScheme(
             primary = Palette.Primary,

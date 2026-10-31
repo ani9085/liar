@@ -7,12 +7,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -81,6 +83,26 @@ private val MISINFO_EXAMPLES = listOf("\"언론이 숨기는 진실\"", "\"먹�
  */
 @Composable
 fun ResultScreen(
+    state: ResultState,
+    canSpeak: Boolean,
+    onSpeak: () -> Unit,
+    onAskFamily: () -> Unit,
+    onHome: () -> Unit,
+) {
+    Box(Modifier.fillMaxSize()) {
+        ResultContent(state, canSpeak, onSpeak, onAskFamily, onHome)
+        // 아래로 내려도 글이 상태 표시줄 아이콘 밑으로 지나가지 않게 결과 색으로 덮는다.
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .windowInsetsTopHeight(WindowInsets.statusBars)
+                .background(LEVEL_STYLE.getValue(state.verdict.level).background),
+        )
+    }
+}
+
+@Composable
+private fun ResultContent(
     state: ResultState,
     canSpeak: Boolean,
     onSpeak: () -> Unit,
